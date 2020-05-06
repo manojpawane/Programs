@@ -22,11 +22,22 @@ fs.exists(faceBookNotification, function(exist){
     }
 })
 
-
+/**
+ * Program where it is returning messaged reading it async
+ */
+   /**
+     * Checks whether file exists or not and returns in boolean
+     */
 fs.exists(faceBookMessages, function(exist){
+    /**
+     * If file exists than check whether it is file or not
+     */
     if(exist){
         fs.stat(faceBookMessages, function(err, statCheck){
                 if(statCheck.isFile()){
+                    /**
+                     * If it is file than it is going to read that file and display it
+                     */
                     fs.readFile(faceBookMessages, function(err, data){
                         if(err){
                             throw err
