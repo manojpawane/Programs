@@ -1,6 +1,6 @@
 var fs = require('fs');
-const faceBookNotification = 'faceBookNotification.txt'
-const faceBookMessages = 'faceBookMessages.txt'
+const faceBookNotification = 'faceBookNotifications.txt'
+const faceBookMessages = 'faceBookMessagess.txt'
 
 fs.exists(faceBookNotification, function(exist){
     if(exist){

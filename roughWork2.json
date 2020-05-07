@@ -1,6 +1,4 @@
 {
-    "newData":["cat", "dog"],
-    "test":{
-        "name":"Manoj"
-    }
+    "name":"abc",
+    "age":19
 }

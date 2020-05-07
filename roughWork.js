@@ -1,22 +1,8 @@
-var myFunc = function outerfunction(){
-    var val = 15
-    function inner(){
-    }
-
-    function innerTwo(){
-        var sampleValue = 20
-        var newVal = val + sampleValue
-
-            function foo(){
-                var fooValue = 58;
-                return fooValue + newVal;
-
-        }
-        return foo();
-    }
-
-    return innerTwo();
+var Data = require('./roughWork2.json');
+if(Data.age > 20){
+    console.log(Data.name);
 }
-
-var result = myFunc();
-console.log(result);
+else{
+    console.log('Age less than 20');
+    
+}
