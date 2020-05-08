@@ -1,4 +1,5 @@
-function bubbleSort(arr, callback){
+function bubbleSort(arr, done){
+    var err = 'bug..'
     console.log(arr);
     
     var len = arr.length,
@@ -11,7 +12,7 @@ for (i=0; i < len; i++){
         }
     }
 }
-    callback(arr);
+    done(arr);
 }
 
 
