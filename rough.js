@@ -1,74 +1,44 @@
 var fs = require('fs');
 var file = 'faceBookMessages.txt'
-    fs.exists(file, function(exists){
-        if(exists){
-            fs.stat(file, function(err, statCheck){
-                if(statCheck.isFile()){
-                    fs.readFile(file, function(err, data){
-                        if(data){
-                               console.log(data.toString());
-                        }
-                    })
+
+function readDataFromFile(){
+    return new Promise(function(resolve, reject){
+        try {
+            fs.exists(file, function(exist){
+                if(exist){
+                    resolve(exist);
+                }
+                else{
+                    reject(exist)
                 }
             })
+        } catch (error) {
+            console.log(reject(error));
         }
     })
-
-
-
-fs.exists(file, checkExist)
-
-function checkExist(exists){
-    if(exists){
-        fs.stat(file, statCheckFun);
-    }
-}
-
-function statCheckFun(err, statCheck){
-    if(statCheck.isFile()){
-        fs.readFile(file, readFileUsingFs)
-    }
-}
-
-function readFileUsingFs(err, data){
-    console.log(data.toString());   
-}
-
-readFileFromData();
-function readFileFromData(){
-    return new Promise(function(resolve, reject){
-        fs.exists(file, function(exists){
-            if(exists){
-                resolve(exists)
-            }
-            else{
-                reject(exists);
+    .then((exist)=>{
+        console.log('exist: '+exist);
+        if(exist){
+           return fs.stat(file)
+        }
+        
+    })
+    .then((statC)=>{
+        console.log(statC);
+        
+        return new Promise(function(resolve, reject){
+            try {
+                if(statC.isFile()){
+                    fs.readFile(file, function(err, data){
+                       resolve(console.log(data.toString()));
+                        
+                    })
+                }
+            } catch (error) {
+                throw error
             }
         })
     })
-    .then((exist)=>{
-        console.log(exist);
-        
-            fs.stat(file, function(err, statCheck){
-                if(err){
-                    throw err
-                }
-            })
-        
-    })
-    .then(()=>{
-        
-            fs.readFile(file, function(err, data){
-                if(err){
-                    throw err
-                }
-                else{
-                    console.log(data.toString());
-                }
-            })
-        
-    })
-    .catch(err=>{
-        throw err;
-    })
 }
+
+readDataFromFile();

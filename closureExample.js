@@ -7,9 +7,9 @@ var counter = 0;
     }
 })()
 
-console.log(add);
-//console.log(add());
-//console.log(add());
+console.log(add());
+console.log(add());
+console.log(add());
 
 //self invoking function can only execute once
 
