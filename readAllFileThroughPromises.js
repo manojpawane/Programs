@@ -1,5 +1,14 @@
+/**
+ * 
+ */
 const fs = require('fs');
+/**
+ * 
+ */
 const util = require('util');
+/**
+ * 
+ */
 var file = 'numbers.txt'
 
 var existsFile = util.promisify(fs.exists);
